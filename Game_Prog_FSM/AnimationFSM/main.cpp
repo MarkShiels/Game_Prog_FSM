@@ -38,7 +38,7 @@ int main()
 		DEBUG_MSG("Failed to load walkRight texture");
 		return EXIT_FAILURE;
 	}
-	if (!walkLeftTexture.loadFromFile("assets\\Runleft.png"))
+	if(!walkLeftTexture.loadFromFile("assets\\RunLeft.png"))
 	{
 		DEBUG_MSG("Failed to load walkLeft texture");
 		return EXIT_FAILURE;

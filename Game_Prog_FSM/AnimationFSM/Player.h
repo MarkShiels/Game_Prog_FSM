@@ -10,15 +10,16 @@ class Player
 private:
 	PlayerFSM m_state;
 	AnimatedSprite m_animated_sprite;
+	AnimatedSprite m_sprites[5];
 	Player();
 
 public:
 	Player(const AnimatedSprite&);
 	~Player();
 	AnimatedSprite& getAnimatedSprite();
+	void addSprite(AnimatedSprite t_sprite, int t_in);
 	void handleInput(Input);
 	void update();
-	void addSprite(AnimatedSprite t_sprite, int t_in);
 	void setSprite(AnimatedSprite t_sprite);
 };
 
