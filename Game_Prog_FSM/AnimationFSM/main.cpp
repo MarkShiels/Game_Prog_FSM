@@ -15,17 +15,35 @@ int main()
 	// Load a sprite to display
 	sf::Texture idleTexture;
 	sf::Texture attackTexture;
+	sf::Texture walkRightTexture;
+	sf::Texture walkLeftTexture;
+	sf::Texture	jumpTexture;
 
 	if (!idleTexture.loadFromFile("assets\\Idle2.png")) {
 		DEBUG_MSG("Failed to load file");
 		return EXIT_FAILURE;
 	}
-
 	if (!attackTexture.loadFromFile("assets\\Attack1.png"))
 	{
 		DEBUG_MSG("Failed to load attack texture");
 		return EXIT_FAILURE;
 	}
+	if (!jumpTexture.loadFromFile("assets\\Jump.png"))
+	{
+		DEBUG_MSG("Failed to load jump texture");
+		return EXIT_FAILURE;
+	}
+	if (!walkRightTexture.loadFromFile("assets\\RunRight.png"))
+	{
+		DEBUG_MSG("Failed to load walkRight texture");
+		return EXIT_FAILURE;
+	}
+	if (!walkLeftTexture.loadFromFile("assets\\RunLeft.png"))
+	{
+		DEBUG_MSG("Failed to load walkLeft texture");
+		return EXIT_FAILURE;
+	}
+
 
 	sf::RectangleShape line;
 	line.setSize(sf::Vector2f(20, 100));
@@ -52,8 +70,40 @@ int main()
 	idle_sprite.addFrame(sf::IntRect(742, 3, 110, 125));
 	idle_sprite.addFrame(sf::IntRect(926, 3, 110, 125));
 
+	//Jump Animation
+	AnimatedSprite jump_sprite(jumpTexture);
+	jump_sprite.addFrame(sf::IntRect(6, 3, 110, 125));
+	jump_sprite.addFrame(sf::IntRect(190, 3, 110, 125));
+
+	//Walk Right Animation
+	AnimatedSprite walkRight_sprite(walkRightTexture);
+	walkRight_sprite.addFrame(sf::IntRect(6, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(190, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(374, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(558, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(742, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(926, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(1110, 3, 210, 125));
+	walkRight_sprite.addFrame(sf::IntRect(1294, 3, 210, 125));
+
+	//Walk Left Animation
+	AnimatedSprite walkLeft_sprite(walkLeftTexture);
+	walkLeft_sprite.addFrame(sf::IntRect(6, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(190, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(374, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(558, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(742, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(926, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(1110, 3, 210, 125));
+	walkLeft_sprite.addFrame(sf::IntRect(1294, 3, 210, 125));
+
 	// Setup the Player
-	Player player(attack_sprite);
+	Player player(idle_sprite);
+	player.addSprite(idle_sprite, 0);
+	player.addSprite(jump_sprite, 1);
+	player.addSprite(attack_sprite, 2);
+	player.addSprite(walkLeft_sprite, 3);
+	player.addSprite(walkRight_sprite, 4);
 	Input input;
 	
 	// Start the game loop

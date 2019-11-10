@@ -24,6 +24,12 @@ AnimatedSprite& Player::getAnimatedSprite()
 	return m_animated_sprite;
 }
 
+void Player::addSprite(AnimatedSprite t_sprite, int t_in)
+{
+	m_sprites[t_in] = t_sprite;
+
+}
+
 void Player::handleInput(Input in)
 {
 	DEBUG_MSG("Handle Input");
