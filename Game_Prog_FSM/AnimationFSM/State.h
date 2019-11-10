@@ -17,6 +17,7 @@ public:
 
 	virtual void idle(PlayerFSM* a)
 	{
+
 		DEBUG_MSG("State::Idling");
 	}
 	virtual void jumping(PlayerFSM* a)

@@ -62,3 +62,8 @@ void PlayerFSM::special()
 {
 	m_current->special(this);
 }
+
+void PlayerFSM::addSprite(AnimatedSprite t_sprite, int t_in)
+{
+	animSprites[t_in] = t_sprite;
+}

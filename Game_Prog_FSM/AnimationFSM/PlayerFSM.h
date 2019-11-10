@@ -1,6 +1,7 @@
 #ifndef PLAYER_FSM_H
 #define PLAYER_FSM_H
 
+#include "AnimatedSprite.h"
 class PlayerFSM
 {
 
@@ -12,14 +13,17 @@ private:
 	class State* m_current; // note order of m_current is 
 							// prior to setCurrent
 	class State* m_previous;
+
 public:
 	PlayerFSM();
 	~PlayerFSM();
+	AnimatedSprite animSprites[5];
 	void setCurrent(State* s);
 	void setPrevious(State* s);
 	State* getCurrent();
 	State* getPrevious();
 	
+	void addSprite(AnimatedSprite t_sprite, int t_in);
 	void idle();
 	void jumping();
 	void climbing();

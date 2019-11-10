@@ -10,10 +10,10 @@ public:
 	{
 		IDLE,
 		UP,
+		DOWN,
 		LEFT,
 		RIGHT,
-		SPECIAL,
-		DOWN
+		SPECIAL
 
 	};
 
