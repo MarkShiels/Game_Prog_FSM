@@ -36,7 +36,13 @@ void Player::handleInput(Input in)
 		
 		if (m_state.getPrevious() != m_state.getCurrent())
 		{
+			cout << "previous: " << m_state.getPrevious() << endl;
+			cout << "current: " << m_state.getCurrent() << endl;
 			m_animated_sprite = m_state.animSprites[0];
+		}
+		else
+		{
+			cout << "same" << endl;
 		}
 		break;
 	case Input::Action::UP:
