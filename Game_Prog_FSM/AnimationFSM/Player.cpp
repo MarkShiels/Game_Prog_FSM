@@ -33,6 +33,7 @@ void Player::handleInput(Input in)
 	case Input::Action::IDLE:
 		//std::cout << "Player Idling" << std::endl;
 		m_state.idle();
+		
 		if (m_state.getPrevious() != m_state.getCurrent())
 		{
 			m_animated_sprite = m_state.animSprites[0];
