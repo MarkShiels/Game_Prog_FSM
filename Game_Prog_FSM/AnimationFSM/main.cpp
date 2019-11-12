@@ -55,14 +55,14 @@ int main()
 
 	
 	//Attack Animation
-	AnimatedSprite attack_sprite(attackTexture);
+	AnimatedSprite attack_sprite(attackTexture, 2);
 	attack_sprite.addFrame(sf::IntRect(6, 3, 110, 125));
 	attack_sprite.addFrame(sf::IntRect(190, 3, 110, 125));
 	attack_sprite.addFrame(sf::IntRect(374, 3, 210, 125));
 	attack_sprite.addFrame(sf::IntRect(558, 3, 210, 125));
 
 	//Idle Animation
-	AnimatedSprite idle_sprite(idleTexture);
+	AnimatedSprite idle_sprite(idleTexture, 0);
 	idle_sprite.addFrame(sf::IntRect(6, 3, 110, 125));
 	idle_sprite.addFrame(sf::IntRect(190, 3, 110, 125));
 	idle_sprite.addFrame(sf::IntRect(374, 3, 110, 125));
@@ -71,12 +71,12 @@ int main()
 	idle_sprite.addFrame(sf::IntRect(926, 3, 110, 125));
 
 	//Jump Animation
-	AnimatedSprite jump_sprite(jumpTexture);
+	AnimatedSprite jump_sprite(jumpTexture, 1);
 	jump_sprite.addFrame(sf::IntRect(6, 3, 110, 125));
 	jump_sprite.addFrame(sf::IntRect(190, 3, 110, 125));
 
 	//Walk Right Animation
-	AnimatedSprite walkRight_sprite(walkRightTexture);
+	AnimatedSprite walkRight_sprite(walkRightTexture, 4);
 	walkRight_sprite.addFrame(sf::IntRect(6, 3, 210, 125));
 	walkRight_sprite.addFrame(sf::IntRect(190, 3, 210, 125));
 	walkRight_sprite.addFrame(sf::IntRect(374, 3, 210, 125));
@@ -87,7 +87,7 @@ int main()
 	walkRight_sprite.addFrame(sf::IntRect(1294, 3, 210, 125));
 
 	//Walk Left Animation
-	AnimatedSprite walkLeft_sprite(walkLeftTexture);
+	AnimatedSprite walkLeft_sprite(walkLeftTexture, 3);
 	walkLeft_sprite.addFrame(sf::IntRect(6, 3, 210, 125));
 	walkLeft_sprite.addFrame(sf::IntRect(190, 3, 210, 125));
 	walkLeft_sprite.addFrame(sf::IntRect(374, 3, 210, 125));

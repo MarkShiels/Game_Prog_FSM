@@ -33,32 +33,35 @@ void Player::handleInput(Input in)
 	case Input::Action::IDLE:
 		//std::cout << "Player Idling" << std::endl;
 		m_state.idle();
-		
-		if (m_state.getPrevious() != m_state.getCurrent())
+		if (m_animated_sprite.getID() != m_state.animSprites[0].getID())
 		{
-			cout << "previous: " << m_state.getPrevious() << endl;
-			cout << "current: " << m_state.getCurrent() << endl;
 			m_animated_sprite = m_state.animSprites[0];
-		}
-		else
-		{
-			cout << "same" << endl;
 		}
 		break;
 	case Input::Action::UP:
 		//std::cout << "Player Up" << std::endl;
 		m_state.jumping();
-		m_animated_sprite = m_state.animSprites[1];
+		if (m_animated_sprite.getID() != m_state.animSprites[1].getID())
+		{
+			m_animated_sprite = m_state.animSprites[1];
+		}
 		break;
 	case Input::Action::LEFT:
 		//std::cout << "Player Walking Left" << std::endl;
 		m_state.walkLeft();
-		m_animated_sprite = m_state.animSprites[3];
+		if (m_animated_sprite.getID() != m_state.animSprites[3].getID())
+
+		{
+			m_animated_sprite = m_state.animSprites[3];
+		}
 		break;
 	case Input::Action::RIGHT:
 		//std::cout << "Player Walking Right" << std::endl;
 		m_state.walkRight();
-		m_animated_sprite = m_state.animSprites[4];
+		if (m_animated_sprite.getID() != m_state.animSprites[4].getID())
+		{
+			m_animated_sprite = m_state.animSprites[4];
+		}
 		break;
 	case Input::Action::DOWN:
 		//std::cout << "Player attacking" << std::endl;

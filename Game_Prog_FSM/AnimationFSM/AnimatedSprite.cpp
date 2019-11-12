@@ -5,7 +5,7 @@ AnimatedSprite::AnimatedSprite()
 	m_current_frame = 0;
 }
 
-AnimatedSprite::AnimatedSprite(const sf::Texture& t) : Sprite(t), m_current_frame(0), m_time(seconds(0.15f)) {}
+AnimatedSprite::AnimatedSprite(const sf::Texture& t, int t_id) : Sprite(t), m_current_frame(0), m_time(seconds(0.15f)), m_id(t_id) {}
 
 AnimatedSprite::AnimatedSprite(const sf::Texture& t, const sf::IntRect& rect) : Sprite(t), m_current_frame(0), m_time(seconds(0.15f)) {
 	m_frames.push_back(rect);
@@ -48,5 +48,10 @@ void AnimatedSprite::update(){
 		}
 		m_clock.restart();
 	}
+}
+
+int AnimatedSprite::getID()
+{
+	return m_id;
 }
 
